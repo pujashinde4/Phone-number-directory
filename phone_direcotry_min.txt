@@ -1,0 +1,63 @@
+// phone_directory number
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void segregate(char *arr1[15]);
+void display_phone();
+int i,std;
+char *arr1_ptr;
+char city1[150],city2[150],city3[150];
+void segregate(char *arr1[15])
+{
+    
+    strcpy(city1,"mumbai=>");
+    strcpy(city2,"pune=>");
+    strcpy(city3,"chennai=>");
+    for(i=0;i<15;i++)
+    {
+        arr1_ptr=arr1[i];
+        if(strstr(arr1_ptr,"11")==0)
+        {
+            strcat(city1,arr1_ptr+5);
+            strcat(city1," ");
+        }
+         if(strstr(arr1_ptr,"22")==0)
+        {
+            strcat(city2,arr1_ptr+5);
+            strcat(city2," ");
+        }
+         if(strstr(arr1_ptr,"33")==0)
+        {
+            strcat(city3,arr1_ptr+5);
+            strcat(city3," ");
+        }
+    }
+}
+void display_phone()
+{
+    printf("\nEnter the std code:");
+    scanf("%d",&std);
+    if(std==11)
+    {
+        printf("\n%s",city1);
+    }
+    else if(std==22)
+    {
+        printf("\n%s",city2);
+    }
+    else
+    {
+        printf("\n%s",city3);
+    }
+}
+
+int main()
+{
+//phone number pointer
+char *arr1[15]={"(11)-11223344","(11)-11223345","(11)-11223346","(11)-11223354","(11)-11223355","(22)-11223356","(22)-11223364","(22)-11223365","(22)-11223366","(22)-11223374","(33)-11223375","(33)-11223376","(33)-11223384","(33)-11223385","(33)-11223386"};
+ //character array 
+ segregate(arr1);
+ display_phone();
+ return 0;
+}
+ 
